@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+<!-- Styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/index.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="banner">
+    <h1>Hi Welcome to The Hunters Blog</h1>
+    <span class="subheading"><i class="fas fa-quote-left"></i> <em class="quote">{{quote.quote}}</em> <i
+        class="fas fa-quote-right"></i></span>
+    <h2>{{quote.author}}</h2>
+    <form id="subscribeForm" class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
+      <h1 class="subscribe">Subscribe Here</h1>
+      <div class="md-form form-group">
+        <input type="email" class="form-control" placeholder="Email Address..." name="subscriber" required>
+      </div>
+      <div class="md-form form-group">
+        <button class="btn btn-success" id="subs">Subscribe</button>
+      </div>
+    </form>
+  </div>
+  <div class="row" id="blogsContainer">
+    <h1>Recent Blogs</h1>
+    {% for blog in blogs %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 all-blogs">
+      <div class="">
+        <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title | upper}}</a></h4>
+        <h5>{{blog.description}}</h5>
+        <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by <a
+          href="user/{{blog.user.username}}">{{blog.user.username}}</a></p>
+        <p> <a class="btn btn-success" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} <i class="far fa-comments"  style='font-size:30px;'></i></a></p>
+
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+
+</div>
+<div class="container-fluid">
+  <footer class="text-center text-white" style="background-color: #584b53;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+        <!-- Github -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-dark" href="https://github.com/ObonyoCynthia/Blog/" target="_blank">obonyocy@blogs</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+ 
+<p>Hello {{user.username}}</p>
+<P>Welcome to The Hunters</P>
+<p>You have just signed up for our application ,Welcome and enjoy blogging here.</p>

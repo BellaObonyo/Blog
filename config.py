@@ -1,3 +1,4 @@
+
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -16,7 +17,6 @@ class Config:
   MAIL_USE_TLS = True
   MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
   MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-  
   #PHOTOS UPLOAD CONFIGURATION
   UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
@@ -26,11 +26,11 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",1)
 
 class DevConfig(Config):
-  SQLALCHEMY_DATABASE_URI = 'bella'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://obonyo:akoth1998@localhost/blog'
   DEBUG = True
 
 class TestConfig(Config):
-  SQLALCHEMY_DATABASE_URI = 'bella'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://obonyo:akoth1998@localhost/blog_test'
 
 config_options = {
   'production':ProdConfig,

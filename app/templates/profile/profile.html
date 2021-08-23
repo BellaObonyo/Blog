@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+
+<!-- Styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../../static/css/index.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 1%">
+  <div class="row">
+    <div class="col-md-4 pict">
+
+
+      <div class="card testimonial-card">
+        <div class="card-img">
+          {% if user.profile_pic_path %}
+          <img  src="{{url_for('static',filename=user.profile_pic_path)}}" style="height:300px;border-radius: 1%"
+            class="card-img" alt="woman avatar"><br>
+          {%else%}
+          <div><i class='fas fa-user-alt' style='font-size:120px;color: #584b53'></i></div>
+          <div id="imgform">
+            <form action="{{url_for('main.profile',name=user.username)}}" method="post" enctype="multipart/form-data">
+              <input type="file" name="photo" class="form-control" required>
+              <input type="submit" class="btn btn-sm btn-info" id="submit">
+            </form>
+          </div>
+
+          {% endif %}
+        </div>
+
+        <div class="card-body">
+        {% if user.bio %}
+          <p><i class="fas fa-quote-left"></i> {{user.bio}}</p>
+          {%else%}
+          {% endif %}
+          {% if user == current_user %}
+          <div class="profpic">
+            <div class="text-centre" id="updates">
+              <a href="{{url_for('main.updateprofile',name=user.username)}} " class="btn btn-primary">Update details</a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h2>Personal Details</h2>
+      <table id="userTable" class="table table-bordered">
+        <tr>
+          <td>Username:</td>
+          <td>{{user.username| capitalize}}</td>
+        </tr>
+        <tr>
+          <td>Email Address:</td>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td>Bio:</td>
+          <td>{{user.bio}}</td>
+        </tr>
+        <tr>
+          <td>Number of Blogs:</td>
+          <td>{{user.blogs.count()}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,133 @@
+body {
+    background-color: #d6e3f8;
+  }
+  nav {
+    background-color: #584b53 !important;
+    height: 8vh !important;
+    padding-top: 1vh !important;
+  }
+  .dropdown a ,.user {
+    color: #e4bb97 !important;
+  }
+  @media (max-width: 1000px) {
+    nav{
+      height: auto !important;
+    }
+  }
+  .dropdown-menu, .open {
+    background-color: #584b53 !important;
+    padding: 3px !important;
+  }
+  .text-centre, .testimonial-card {
+    text-align: center;
+    margin-top: 4rem !important;
+  }
+  .dropdown a:hover ,.user:hover {
+    cursor: pointer;
+  }
+  .card-img img {
+    border-radius: 50% !important;
+  }
+  nav a {
+    color: #e4bb97 !important;
+  }
+  table {
+    border: 1.5px solid #584b53 !important;
+  }
+  .banner {
+    background-color: #fef5ef;
+    height: 600px;
+    text-align: center;
+    padding: 5% 10% 5% 10%;
+  }
+  #userTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #deleteForm {
+    display: inline !important;
+  }
+  #comment {
+    width: 100% !important;
+    display: block;
+  }
+  
+  #userTable td, #userTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #userTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #userTable tr:hover {background-color: #ddd;}
+  
+  #userTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+  .quote {
+    font-size: 20px;
+    color: #337AB7;
+  }
+  .subscribe {
+    color: green;
+  }
+  #subscribeForm {
+    margin-top: 5%;
+  }
+  #post {
+    border: 1.5px solid #fef5ef !important;
+  }
+  h1 {
+    text-align: center;
+    color: #584b53;
+  }
+  #blogsContainer {
+    margin: 6vh;
+  }
+  .user-img {
+    width: 2cm !important;
+    height: 2cm !important;
+    border-radius: 50% !important;
+  }
+  #userComment {
+    margin-bottom: 2rem !important;
+  }
+  hr {
+    background-color: #584b53 !important;
+    height: 1.5px;
+  }
+  .all-blogs {
+    padding: 2rem !important;
+    border: 1.5px solid #584b53 !important;
+    height: 25vh !important;
+    overflow-y: auto !important;
+  }
+  .user-blogs {
+    padding: 2rem !important;
+    border: 1.5px solid #584b53 !important;
+    height: auto !important;
+  }
+  footer {
+    color: #e4bb97;
+  }
+  footer a {
+    color: #e4bb97 !important;
+  }
+  @media (max-width: 500px) {
+    .user-blogs, .all-blogs {
+      height: auto !important;
+    }
+    #blogsContainer {
+      margin: 0 !important;
+    }
+    .banner {
+      height: auto;
+      text-align: center;
+      padding: 5%;
+    }
+  }
